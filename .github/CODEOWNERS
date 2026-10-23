@@ -1,0 +1,4 @@
+# Default owners: replace with real team handles
+* @lcmig-architects @lcmig-developers
+/packages/persistence-core/ @lcmig-architects
+/packages/persistence-postgres/migrations/ @lcmig-architects

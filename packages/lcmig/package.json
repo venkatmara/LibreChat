@@ -1,0 +1,14 @@
+{
+  "name": "@lcmig/cli",
+  "version": "0.1.0",
+  "private": true,
+  "description": "lcmig migration CLI: profile, extract, transform, load, reconcile",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "bin": {
+    "lcmig": "dist/cli.js"
+  },
+  "dependencies": {
+    "@lcmig/persistence-core": "0.1.0"
+  }
+}

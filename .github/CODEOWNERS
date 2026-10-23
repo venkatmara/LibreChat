@@ -1,0 +1,5 @@
+# MANUAL STEP: replace with real GitHub handles/teams, then uncomment.
+# Until then there is no enforced code owner (see CONTRIBUTING.md, "Manual steps").
+# *                          @<org>/<architect-team>
+# /packages/persistence-*/   @<org>/<architect-team> @<org>/<dba-team>
+# /docs/adr/                 @<org>/<architect-team>

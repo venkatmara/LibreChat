@@ -1,0 +1,6 @@
+# LCMIG tooling scope: ignore build output, lockfile and the LibreChat api/ placeholder content
+node_modules
+dist
+coverage
+package-lock.json
+.env

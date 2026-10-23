@@ -1,0 +1,9 @@
+{
+  "files": [],
+  "references": [
+    { "path": "packages/persistence-core" },
+    { "path": "packages/persistence-mongo" },
+    { "path": "packages/persistence-postgres" },
+    { "path": "packages/lcmig" }
+  ]
+}

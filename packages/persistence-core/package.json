@@ -1,0 +1,8 @@
+{
+  "name": "@lcmig/persistence-core",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Persistence ports, domain types, errors, module registry, contract-test kit",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts"
+}

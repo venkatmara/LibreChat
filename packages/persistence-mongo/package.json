@@ -1,0 +1,10 @@
+{
+  "name": "@lcmig/persistence-mongo",
+  "version": "0.1.0",
+  "private": true,
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "dependencies": {
+    "@lcmig/persistence-core": "0.1.0"
+  }
+}

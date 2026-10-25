@@ -4,7 +4,7 @@ export type Stage = (typeof STAGES)[number];
 export function run(argv: readonly string[]): string {
   const [command] = argv;
   if (command === undefined || command === '--help') {
-    return `Usage: lcmig <${STAGES.join('|')}>`;
+    return `Usage: lcmig <${STAGES.join('|')}|audit-check>`;
   }
   const stage = STAGES.find((s) => s === command);
   if (!stage) {

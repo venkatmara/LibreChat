@@ -1,0 +1,699 @@
+{
+  "version": 1,
+  "collections": [
+    {
+      "collection": "accessroles",
+      "model": "AccessRole",
+      "schemaFile": "packages/data-schemas/src/models/accessRole.ts",
+      "services": [
+        "api/server/controllers/PermissionsController.js",
+        "packages/data-schemas/src/methods/accessRole.ts"
+      ],
+      "slice": "pending"
+    },
+    {
+      "collection": "aclentries",
+      "model": "AclEntry",
+      "schemaFile": "packages/data-schemas/src/models/aclEntry.ts",
+      "services": [
+        "api/server/controllers/mcp.js",
+        "packages/api/src/acl/accessControlService.ts",
+        "packages/api/src/agents/migration.ts",
+        "packages/api/src/code/lifecycle.ts",
+        "packages/api/src/prompts/migration.ts",
+        "packages/api/src/shared-links/service.ts",
+        "packages/data-schemas/src/methods/aclEntry.ts",
+        "packages/data-schemas/src/methods/agent.ts",
+        "packages/data-schemas/src/methods/codeEnvironment.ts",
+        "packages/data-schemas/src/methods/mcpAuthority.ts",
+        "packages/data-schemas/src/methods/mcpServer.ts",
+        "packages/data-schemas/src/methods/prompt.ts"
+      ],
+      "slice": "pending"
+    },
+    {
+      "collection": "actions",
+      "model": "Action",
+      "schemaFile": "packages/data-schemas/src/models/action.ts",
+      "services": [
+        "api/app/clients/tools/structured/FluxAPI.js",
+        "api/config/index.js",
+        "api/server/controllers/agents/v1.js",
+        "api/server/routes/actions.js",
+        "api/server/routes/agents/actions.js",
+        "api/server/routes/assistants/actions.js",
+        "api/server/services/ActionService.js",
+        "api/server/services/Runs/StreamRunManager.js",
+        "api/server/services/ToolService.js",
+        "api/typedefs.js",
+        "packages/api/src/actions/credentials.ts",
+        "packages/api/src/actions/update.ts"
+      ],
+      "slice": "pending"
+    },
+    {
+      "collection": "agentapikeys",
+      "model": "AgentApiKey",
+      "schemaFile": "packages/data-schemas/src/models/agentApiKey.ts",
+      "services": ["packages/data-schemas/src/methods/agentApiKey.ts"],
+      "slice": "pending"
+    },
+    {
+      "collection": "agentcategories",
+      "model": "AgentCategory",
+      "schemaFile": "packages/data-schemas/src/models/agentCategory.ts",
+      "services": ["packages/data-schemas/src/methods/agentCategory.ts"],
+      "slice": "pending"
+    },
+    {
+      "collection": "agentqueuedturns",
+      "model": "AgentQueuedTurn",
+      "schemaFile": "packages/data-schemas/src/models/queuedTurn.ts",
+      "services": ["packages/data-schemas/src/methods/queuedTurn.ts"],
+      "slice": "pending"
+    },
+    {
+      "collection": "agentqueuedturnsequences",
+      "model": "AgentQueuedTurnSequence",
+      "schemaFile": "packages/data-schemas/src/models/queuedTurn.ts",
+      "services": ["packages/data-schemas/src/methods/queuedTurn.ts"],
+      "slice": "pending"
+    },
+    {
+      "collection": "agents",
+      "model": "Agent",
+      "schemaFile": "packages/data-schemas/src/models/agent.ts",
+      "services": [
+        "api/app/clients/BaseClient.js",
+        "api/app/clients/tools/util/fileSearch.js",
+        "api/app/clients/tools/util/handleTools.js",
+        "api/server/controllers/UserController.js",
+        "api/server/controllers/agents/callbacks.js",
+        "api/server/controllers/agents/client.js",
+        "api/server/controllers/agents/openai.js",
+        "api/server/controllers/agents/request.js",
+        "api/server/controllers/agents/responses.js",
+        "api/server/controllers/agents/v1.js",
+        "api/server/middleware/accessResources/canAccessAgentFromBody.js",
+        "api/server/middleware/accessResources/canAccessAgentResource.js"
+      ],
+      "slice": "pending"
+    },
+    {
+      "collection": "agenttriggerdeliveries",
+      "model": "AgentTriggerDelivery",
+      "schemaFile": "packages/data-schemas/src/models/triggerDelivery.ts",
+      "services": [
+        "packages/data-schemas/src/methods/conversation.ts",
+        "packages/data-schemas/src/methods/triggerDelivery.ts"
+      ],
+      "slice": "pending"
+    },
+    {
+      "collection": "agenttriggerlanesequences",
+      "model": "AgentTriggerLaneSequence",
+      "schemaFile": "packages/data-schemas/src/models/triggerLaneSequence.ts",
+      "services": ["packages/data-schemas/src/methods/triggerDelivery.ts"],
+      "slice": "pending"
+    },
+    {
+      "collection": "agenttriggeruserpurges",
+      "model": "AgentTriggerUserPurge",
+      "schemaFile": "packages/data-schemas/src/models/triggerUserPurge.ts",
+      "services": ["packages/data-schemas/src/methods/triggerDelivery.ts"],
+      "slice": "pending"
+    },
+    {
+      "collection": "assistants",
+      "model": "Assistant",
+      "schemaFile": "packages/data-schemas/src/models/assistant.ts",
+      "services": [
+        "api/app/clients/specs/FakeClient.js",
+        "api/server/controllers/assistants/chatV1.js",
+        "api/server/controllers/assistants/chatV2.js",
+        "api/server/controllers/assistants/errors.js",
+        "api/server/controllers/assistants/helpers.js",
+        "api/server/controllers/assistants/v1.js",
+        "api/server/controllers/assistants/v2.js",
+        "api/server/middleware/assistants/validate.js",
+        "api/server/middleware/assistants/validateAuthor.js",
+        "api/server/routes/agents/actions.js",
+        "api/server/routes/assistants/actions.js",
+        "api/server/routes/assistants/v1.js"
+      ],
+      "slice": "pending"
+    },
+    {
+      "collection": "auditlogs",
+      "model": "AuditLog",
+      "schemaFile": "packages/data-schemas/src/models/auditLog.ts",
+      "services": ["packages/data-schemas/src/methods/auditLog.ts"],
+      "slice": "pending"
+    },
+    {
+      "collection": "balances",
+      "model": "Balance",
+      "schemaFile": "packages/data-schemas/src/models/balance.ts",
+      "services": [
+        "api/server/controllers/Balance.js",
+        "api/server/routes/balance.js",
+        "api/server/services/Schedules/index.js",
+        "packages/api/src/middleware/balance.ts",
+        "packages/api/src/middleware/checkBalance.ts",
+        "packages/data-schemas/src/methods/schedule.ts",
+        "packages/data-schemas/src/methods/transaction.ts",
+        "packages/data-schemas/src/methods/user.ts"
+      ],
+      "slice": "pending"
+    },
+    {
+      "collection": "banners",
+      "model": "Banner",
+      "schemaFile": "packages/data-schemas/src/models/banner.ts",
+      "services": ["packages/data-schemas/src/methods/banner.ts"],
+      "slice": "pending"
+    },
+    {
+      "collection": "chatprojects",
+      "model": "ChatProject",
+      "schemaFile": "packages/data-schemas/src/models/chatProject.ts",
+      "services": [
+        "packages/api/src/agents/compatibility.ts",
+        "packages/api/src/agents/discovery.ts",
+        "packages/api/src/agents/initialize.ts",
+        "packages/data-schemas/src/methods/chatProject.ts",
+        "packages/data-schemas/src/methods/conversation.ts",
+        "packages/data-schemas/src/methods/file.ts"
+      ],
+      "slice": "pending"
+    },
+    {
+      "collection": "codeenvironments",
+      "model": "CodeEnvironment",
+      "schemaFile": "packages/data-schemas/src/models/codeEnvironment.ts",
+      "services": [
+        "packages/api/src/code/environments.ts",
+        "packages/api/src/code/lifecycle.ts",
+        "packages/data-schemas/src/methods/codeEnvironment.ts"
+      ],
+      "slice": "pending"
+    },
+    {
+      "collection": "configs",
+      "model": "Config",
+      "schemaFile": "packages/data-schemas/src/models/config.ts",
+      "services": [
+        "api/app/clients/tools/util/handleTools.js",
+        "api/server/controllers/EndpointController.js",
+        "api/server/controllers/ModelController.js",
+        "api/server/controllers/PermissionsController.js",
+        "api/server/controllers/PluginController.js",
+        "api/server/controllers/UserController.js",
+        "api/server/controllers/agents/client.js",
+        "api/server/controllers/agents/v1.js",
+        "api/server/controllers/assistants/helpers.js",
+        "api/server/controllers/auth/PasskeyController.js",
+        "api/server/controllers/mcp.js",
+        "api/server/controllers/mcpApps.js"
+      ],
+      "slice": "pending"
+    },
+    {
+      "collection": "conversations",
+      "model": "Conversation",
+      "schemaFile": "packages/data-schemas/src/models/convo.ts",
+      "services": [
+        "api/db/index.js",
+        "api/db/indexSync.js",
+        "api/server/controllers/agents/callbacks.js",
+        "api/server/controllers/agents/client.js",
+        "api/server/controllers/agents/openai.js",
+        "api/server/controllers/agents/request.js",
+        "api/server/controllers/agents/responses.js",
+        "api/server/controllers/agents/resume.js",
+        "api/server/routes/__test-utils__/convos-route-mocks.js",
+        "api/server/routes/agents/openai.js",
+        "api/server/routes/convos.js",
+        "api/server/routes/messages.js"
+      ],
+      "slice": "pending"
+    },
+    {
+      "collection": "conversationtags",
+      "model": "ConversationTag",
+      "schemaFile": "packages/data-schemas/src/models/conversationTag.ts",
+      "services": ["packages/data-schemas/src/methods/conversationTag.ts"],
+      "slice": "pending"
+    },
+    {
+      "collection": "files",
+      "model": "File",
+      "schemaFile": "packages/data-schemas/src/models/file.ts",
+      "services": [
+        "api/app/clients/tools/structured/OpenAIImageTools.js",
+        "api/app/clients/tools/util/fileSearch.js",
+        "api/server/controllers/agents/client.js",
+        "api/server/controllers/agents/v1.js",
+        "api/server/controllers/assistants/v1.js",
+        "api/server/experimental.js",
+        "api/server/index.js",
+        "api/server/middleware/accessResources/fileAccess.js",
+        "api/server/routes/agents/v1.js",
+        "api/server/routes/assistants/v1.js",
+        "api/server/routes/assistants/v2.js",
+        "api/server/routes/convos.js"
+      ],
+      "slice": "pending"
+    },
+    {
+      "collection": "groups",
+      "model": "Group",
+      "schemaFile": "packages/data-schemas/src/models/group.ts",
+      "services": [
+        "api/server/controllers/PermissionsController.js",
+        "api/server/services/GraphApiService.js",
+        "api/server/services/PermissionService.js",
+        "packages/api/src/acl/accessControlService.ts",
+        "packages/api/src/admin/groups.ts",
+        "packages/api/src/agents/auth.ts",
+        "packages/api/src/agents/cleanup.ts",
+        "packages/api/src/files/provision/service.ts",
+        "packages/api/src/stream/implementations/RedisJobStore.ts",
+        "packages/api/src/tools/toolkits/web.ts",
+        "packages/data-schemas/src/methods/config.ts",
+        "packages/data-schemas/src/methods/mcpAuthority.ts"
+      ],
+      "slice": "pending"
+    },
+    {
+      "collection": "keys",
+      "model": "Key",
+      "schemaFile": "packages/data-schemas/src/models/key.ts",
+      "services": [
+        "api/server/routes/memories.js",
+        "api/server/services/Runs/StreamRunManager.js",
+        "api/strategies/openidStrategy.js",
+        "packages/api/src/admin/langfuse.ts",
+        "packages/api/src/agents/hitl/policy.ts",
+        "packages/api/src/agents/memory.ts",
+        "packages/api/src/agents/triggers/bindings.ts",
+        "packages/api/src/agents/triggers/ingress.ts",
+        "packages/api/src/cdn/cloudfront-cookies.ts",
+        "packages/api/src/endpoints/custom/initialize.ts",
+        "packages/api/src/endpoints/openai/initialize.ts",
+        "packages/api/src/files/provision/service.ts"
+      ],
+      "slice": "pending"
+    },
+    {
+      "collection": "mcpservers",
+      "model": "MCPServer",
+      "schemaFile": "packages/data-schemas/src/models/mcpServer.ts",
+      "services": [
+        "api/server/routes/mcp.js",
+        "packages/data-schemas/src/methods/mcpAuthority.ts",
+        "packages/data-schemas/src/methods/mcpServer.ts"
+      ],
+      "slice": "pending"
+    },
+    {
+      "collection": "memoryentries",
+      "model": "MemoryEntry",
+      "schemaFile": "packages/data-schemas/src/models/memory.ts",
+      "services": ["packages/data-schemas/src/methods/memory.ts"],
+      "slice": "pending"
+    },
+    {
+      "collection": "messages",
+      "model": "Message",
+      "schemaFile": "packages/data-schemas/src/models/message.ts",
+      "services": [
+        "api/app/clients/tools/structured/FluxAPI.js",
+        "api/app/clients/tools/structured/OpenAIImageTools.js",
+        "api/db/index.js",
+        "api/db/indexSync.js",
+        "api/server/controllers/agents/openai.js",
+        "api/server/controllers/agents/request.js",
+        "api/server/controllers/agents/responses.js",
+        "api/server/controllers/assistants/chatV1.js",
+        "api/server/controllers/assistants/errors.js",
+        "api/server/controllers/tools.js",
+        "api/server/middleware/limiters/messageLimiters.js",
+        "api/server/routes/__test-utils__/convos-route-mocks.js"
+      ],
+      "slice": "pending"
+    },
+    {
+      "collection": "openidrefreshflights",
+      "model": "OpenIDRefreshFlight",
+      "schemaFile": "packages/data-schemas/src/models/openidRefreshFlight.ts",
+      "services": [
+        "api/server/controllers/AuthController.js",
+        "api/server/services/OpenIDRefreshRecovery.js",
+        "api/server/services/OpenIDSessionRefresh.js",
+        "packages/api/src/auth/openid/flight.ts",
+        "packages/data-schemas/src/methods/openidRefreshFlight.ts"
+      ],
+      "slice": "pending"
+    },
+    {
+      "collection": "passkeys",
+      "model": "Passkey",
+      "schemaFile": "packages/data-schemas/src/models/passkey.ts",
+      "services": [
+        "packages/api/src/auth/passkey.ts",
+        "packages/api/src/auth/passkey/handlers.ts",
+        "packages/data-schemas/src/methods/passkey.ts"
+      ],
+      "slice": "pending"
+    },
+    {
+      "collection": "pluginauths",
+      "model": "PluginAuth",
+      "schemaFile": "packages/data-schemas/src/models/pluginAuth.ts",
+      "services": [
+        "packages/data-schemas/src/methods/mcpAuthority.ts",
+        "packages/data-schemas/src/methods/pluginAuth.ts"
+      ],
+      "slice": "pending"
+    },
+    {
+      "collection": "presets",
+      "model": "Preset",
+      "schemaFile": "packages/data-schemas/src/models/preset.ts",
+      "services": ["packages/data-schemas/src/methods/preset.ts"],
+      "slice": "pending"
+    },
+    {
+      "collection": "promptgroups",
+      "model": "PromptGroup",
+      "schemaFile": "packages/data-schemas/src/models/promptGroup.ts",
+      "services": [
+        "api/server/middleware/accessResources/canAccessPromptGroupResource.js",
+        "api/server/services/start/migration.js",
+        "packages/data-schemas/src/methods/prompt.ts"
+      ],
+      "slice": "pending"
+    },
+    {
+      "collection": "prompts",
+      "model": "Prompt",
+      "schemaFile": "packages/data-schemas/src/models/prompt.ts",
+      "services": [
+        "packages/api/src/agents/activityLabels/wiring.ts",
+        "packages/api/src/agents/activityPhases/runtime.ts",
+        "packages/api/src/agents/hitl/answers.ts",
+        "packages/api/src/agents/hooks/schema.ts",
+        "packages/api/src/agents/responses/types.ts",
+        "packages/api/src/app/allowlist.ts",
+        "packages/api/src/db/utils.ts",
+        "packages/api/src/prompts/errors.ts",
+        "packages/api/src/prompts/handlers.ts",
+        "packages/api/src/prompts/migration.ts",
+        "packages/api/src/prompts/schemas.ts",
+        "packages/api/src/prompts/service.ts"
+      ],
+      "slice": "pending"
+    },
+    {
+      "collection": "refreshtokenbridges",
+      "model": "RefreshTokenBridge",
+      "schemaFile": "packages/data-schemas/src/models/refreshTokenBridge.ts",
+      "services": [
+        "api/server/controllers/AuthController.js",
+        "api/server/controllers/auth/LogoutController.js",
+        "api/server/services/OpenIDRefreshRecovery.js",
+        "api/server/services/OpenIDSessionRefresh.js",
+        "packages/api/src/auth/openid/bridge.ts",
+        "packages/data-schemas/src/methods/refreshTokenBridge.ts"
+      ],
+      "slice": "pending"
+    },
+    {
+      "collection": "resourcelocks",
+      "model": "ResourceLock",
+      "schemaFile": "packages/data-schemas/src/models/resourceLock.ts",
+      "services": ["packages/data-schemas/src/methods/resourceLock.ts"],
+      "slice": "pending"
+    },
+    {
+      "collection": "roles",
+      "model": "Role",
+      "schemaFile": "packages/data-schemas/src/models/role.ts",
+      "services": [
+        "api/server/controllers/PermissionsController.js",
+        "api/server/routes/roles.js",
+        "api/server/routes/skills.js",
+        "api/server/services/PermissionService.js",
+        "api/server/services/Skills/sync.js",
+        "api/strategies/openidStrategy.js",
+        "packages/api/src/acl/accessControlService.ts",
+        "packages/api/src/admin/grants.ts",
+        "packages/api/src/admin/lease.ts",
+        "packages/api/src/admin/roles.ts",
+        "packages/api/src/app/permissions.ts",
+        "packages/api/src/cdn/s3.ts"
+      ],
+      "slice": "pending"
+    },
+    {
+      "collection": "scheduleruns",
+      "model": "ScheduleRun",
+      "schemaFile": "packages/data-schemas/src/models/schedule.ts",
+      "services": [
+        "packages/api/src/schedules/engine.ts",
+        "packages/api/src/schedules/handlers.ts",
+        "packages/api/src/schedules/service.ts",
+        "packages/data-schemas/src/methods/schedule.ts"
+      ],
+      "slice": "pending"
+    },
+    {
+      "collection": "schedules",
+      "model": "Schedule",
+      "schemaFile": "packages/data-schemas/src/models/schedule.ts",
+      "services": [
+        "api/server/controllers/agents/resume.js",
+        "packages/api/src/schedules/engine.ts",
+        "packages/api/src/schedules/erasure.ts",
+        "packages/api/src/schedules/handlers.ts",
+        "packages/api/src/schedules/service.ts",
+        "packages/api/src/stream/implementations/RedisEventTransport.ts",
+        "packages/api/src/stream/implementations/RedisJobStore.ts",
+        "packages/data-schemas/src/methods/schedule.ts",
+        "packages/data-schemas/src/methods/scheduleConsent.ts"
+      ],
+      "slice": "pending"
+    },
+    {
+      "collection": "sessions",
+      "model": "Session",
+      "schemaFile": "packages/data-schemas/src/models/session.ts",
+      "services": [
+        "api/server/controllers/AuthController.js",
+        "api/server/routes/files/files.js",
+        "api/server/services/Files/Code/process.js",
+        "packages/api/src/agents/hooks/runtime.ts",
+        "packages/api/src/agents/skillFiles.ts",
+        "packages/api/src/auth/openid/session.ts",
+        "packages/api/src/cache/cacheFactory.ts",
+        "packages/api/src/code/command.ts",
+        "packages/api/src/middleware/terms.ts",
+        "packages/data-schemas/src/methods/session.ts",
+        "packages/data-schemas/src/methods/userGroup.ts"
+      ],
+      "slice": "pending"
+    },
+    {
+      "collection": "sharedlinks",
+      "model": "SharedLink",
+      "schemaFile": "packages/data-schemas/src/models/sharedLink.ts",
+      "services": [
+        "api/server/routes/__test-utils__/convos-route-mocks.js",
+        "api/server/routes/accessPermissions.js",
+        "api/server/routes/share.js",
+        "api/server/utils/import/fork.js",
+        "packages/api/src/agents/checkpoints/deletion.ts",
+        "packages/api/src/shared-links/access.ts",
+        "packages/api/src/shared-links/service.ts",
+        "packages/data-schemas/src/methods/conversation.ts",
+        "packages/data-schemas/src/methods/share.ts"
+      ],
+      "slice": "pending"
+    },
+    {
+      "collection": "skilldeletions",
+      "model": "SkillDeletion",
+      "schemaFile": "packages/data-schemas/src/models/skillDeletion.ts",
+      "services": ["packages/data-schemas/src/methods/skillLifecycle.ts"],
+      "slice": "pending"
+    },
+    {
+      "collection": "skillfiles",
+      "model": "SkillFile",
+      "schemaFile": "packages/data-schemas/src/models/skillFile.ts",
+      "services": [
+        "packages/api/src/agents/skillFiles.ts",
+        "packages/api/src/openapi/skills.ts",
+        "packages/api/src/skills/handlers.ts",
+        "packages/api/src/skills/import.ts",
+        "packages/data-schemas/src/methods/skill.ts",
+        "packages/data-schemas/src/methods/skillLifecycle.ts"
+      ],
+      "slice": "pending"
+    },
+    {
+      "collection": "skills",
+      "model": "Skill",
+      "schemaFile": "packages/data-schemas/src/models/skill.ts",
+      "services": [
+        "api/app/clients/BaseClient.js",
+        "api/recover-skill-upload.js",
+        "api/server/controllers/SkillStatesController.js",
+        "api/server/controllers/agents/client.js",
+        "api/server/controllers/agents/request.js",
+        "api/server/middleware/accessResources/canAccessSkillResource.js",
+        "api/server/routes/agents/skills.js",
+        "api/server/routes/skills.js",
+        "api/server/services/Endpoints/agents/addedConvo.js",
+        "api/server/services/Endpoints/agents/initialize.js",
+        "api/server/services/Endpoints/agents/skillDeps.js",
+        "api/server/services/Skills/sync.js"
+      ],
+      "slice": "pending"
+    },
+    {
+      "collection": "skillsynccredentials",
+      "model": "SkillSyncCredential",
+      "schemaFile": "packages/data-schemas/src/models/skillSyncCredential.ts",
+      "services": ["packages/data-schemas/src/methods/skillSync.ts"],
+      "slice": "pending"
+    },
+    {
+      "collection": "skillsyncstatuses",
+      "model": "SkillSyncStatus",
+      "schemaFile": "packages/data-schemas/src/models/skillSyncStatus.ts",
+      "services": ["packages/data-schemas/src/methods/skillSync.ts"],
+      "slice": "pending"
+    },
+    {
+      "collection": "skilluploadintents",
+      "model": "SkillUploadIntent",
+      "schemaFile": "packages/data-schemas/src/models/skillUploadIntent.ts",
+      "services": [
+        "packages/data-schemas/src/methods/skill.ts",
+        "packages/data-schemas/src/methods/skillLifecycle.ts"
+      ],
+      "slice": "pending"
+    },
+    {
+      "collection": "subagentcontents",
+      "model": "SubagentContent",
+      "schemaFile": "packages/data-schemas/src/models/subagentContent.ts",
+      "services": [
+        "packages/data-schemas/src/methods/import.ts",
+        "packages/data-schemas/src/methods/message.ts",
+        "packages/data-schemas/src/methods/subagentContent.ts"
+      ],
+      "slice": "pending"
+    },
+    {
+      "collection": "systemgrants",
+      "model": "SystemGrant",
+      "schemaFile": "packages/data-schemas/src/models/systemGrant.ts",
+      "services": [
+        "packages/api/src/admin/grants.ts",
+        "packages/data-schemas/src/methods/systemGrant.ts"
+      ],
+      "slice": "pending"
+    },
+    {
+      "collection": "tokens",
+      "model": "Token",
+      "schemaFile": "packages/data-schemas/src/models/token.ts",
+      "services": [
+        "api/server/controllers/agents/client.js",
+        "api/server/controllers/mcp.js",
+        "api/server/services/AuthService.js",
+        "api/server/services/GraphApiService.js",
+        "api/server/services/OboTokenService.js",
+        "api/typedefs.js",
+        "packages/api/src/admin/config.ts",
+        "packages/api/src/agents/activityLabels/runtime.ts",
+        "packages/api/src/agents/memory.ts",
+        "packages/api/src/agents/openai/types.ts",
+        "packages/api/src/agents/responses/handlers.ts",
+        "packages/api/src/agents/responses/types.ts"
+      ],
+      "slice": "pending"
+    },
+    {
+      "collection": "toolapprovalgrants",
+      "model": "ToolApprovalGrant",
+      "schemaFile": "packages/data-schemas/src/models/toolApprovalGrant.ts",
+      "services": [
+        "packages/data-schemas/src/methods/conversation.ts",
+        "packages/data-schemas/src/methods/toolApprovalGrant.ts",
+        "packages/data-schemas/src/methods/user.ts"
+      ],
+      "slice": "pending"
+    },
+    {
+      "collection": "toolcalls",
+      "model": "ToolCall",
+      "schemaFile": "packages/data-schemas/src/models/toolCall.ts",
+      "services": [
+        "api/server/services/Runs/RunManager.js",
+        "api/typedefs.js",
+        "packages/api/src/agents/checkpoints/deletion.ts",
+        "packages/api/src/agents/openai/handlers.ts",
+        "packages/api/src/agents/openai/service.ts",
+        "packages/api/src/agents/openai/types.ts",
+        "packages/api/src/stream/GenerationJobManager.ts",
+        "packages/data-schemas/src/methods/toolCall.ts"
+      ],
+      "slice": "pending"
+    },
+    {
+      "collection": "toolfavorites",
+      "model": "ToolFavorite",
+      "schemaFile": "packages/data-schemas/src/models/favorite.ts",
+      "services": ["packages/data-schemas/src/methods/favorite.ts"],
+      "slice": "pending"
+    },
+    {
+      "collection": "transactions",
+      "model": "Transaction",
+      "schemaFile": "packages/data-schemas/src/models/transaction.ts",
+      "services": [
+        "api/typedefs.js",
+        "packages/api/src/agents/usage.ts",
+        "packages/api/src/mcp/oauth/handler.ts",
+        "packages/data-schemas/src/methods/aclEntry.ts",
+        "packages/data-schemas/src/methods/spendTokens.ts",
+        "packages/data-schemas/src/methods/transaction.ts"
+      ],
+      "slice": "pending"
+    },
+    {
+      "collection": "users",
+      "model": "User",
+      "schemaFile": "packages/data-schemas/src/models/user.ts",
+      "services": [
+        "packages/data-schemas/src/methods/user.ts",
+        "api/strategies/localStrategy.js",
+        "api/app/clients/BaseClient.js",
+        "api/app/clients/tools/structured/AzureAISearch.js",
+        "api/app/clients/tools/structured/StableDiffusion.js",
+        "api/app/clients/tools/util/handleTools.js",
+        "api/server/controllers/FavoritesController.js",
+        "api/server/controllers/PermissionsController.js",
+        "api/server/controllers/PluginController.js",
+        "api/server/controllers/SkillStatesController.js",
+        "api/server/controllers/TwoFactorController.js",
+        "api/server/controllers/UserController.js"
+      ],
+      "slice": "users"
+    }
+  ]
+}

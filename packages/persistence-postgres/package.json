@@ -5,6 +5,11 @@
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "dependencies": {
-    "@lcmig/persistence-core": "0.1.0"
+    "@lcmig/persistence-core": "0.1.0",
+    "kysely": "^0.28.18",
+    "pg": "^8.23.1"
+  },
+  "devDependencies": {
+    "@types/pg": "^8.23.1"
   }
 }

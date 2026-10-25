@@ -99,12 +99,12 @@ export function runUserRepoContract(
         email: 'o@example.com',
         provider: 'google',
         identities: [{ provider: 'google', issuer: null, providerUserId: 'g-1' }],
-        preferences: { favorites: ['x'] },
+        preferences: { favorites: [{ agentId: 'x' }] },
       });
       assert.deepEqual(created.identities, [
         { provider: 'google', issuer: null, providerUserId: 'g-1' },
       ]);
-      assert.deepEqual(created.preferences, { favorites: ['x'] });
+      assert.deepEqual(created.preferences, { favorites: [{ agentId: 'x' }] });
       assert.deepEqual((await users.findById(created.id))?.identities, created.identities);
     });
 

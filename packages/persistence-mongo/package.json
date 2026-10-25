@@ -5,6 +5,10 @@
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "dependencies": {
-    "@lcmig/persistence-core": "0.1.0"
+    "@lcmig/persistence-core": "0.1.0",
+    "mongoose": "^8.24.7"
+  },
+  "devDependencies": {
+    "mongodb-memory-server": "^10.4.3"
   }
 }

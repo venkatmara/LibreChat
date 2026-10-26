@@ -9,6 +9,13 @@
     "lcmig": "dist/cli.js"
   },
   "dependencies": {
-    "@lcmig/persistence-core": "0.1.0"
+    "@lcmig/persistence-core": "0.1.0",
+    "@lcmig/persistence-mongo": "0.1.0",
+    "@lcmig/persistence-postgres": "0.1.0",
+    "kysely": "^0.28.18",
+    "mongoose": "^8.24.7"
+  },
+  "devDependencies": {
+    "mongodb-memory-server": "^10.4.3"
   }
 }

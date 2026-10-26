@@ -7,7 +7,9 @@
     "types": ["node", "jest"],
     "baseUrl": ".",
     "paths": {
-      "@lcmig/persistence-core": ["packages/persistence-core/src/index.ts"]
+      "@lcmig/persistence-core": ["packages/persistence-core/src/index.ts"],
+      "@lcmig/persistence-mongo": ["packages/persistence-mongo/src/index.ts"],
+      "@lcmig/persistence-postgres": ["packages/persistence-postgres/src/index.ts"]
     }
   },
   "include": ["packages/*/src/**/*.ts"]

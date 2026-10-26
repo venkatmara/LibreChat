@@ -1,7 +1,28 @@
 {
   "extends": "../../tsconfig.base.json",
-  "compilerOptions": { "rootDir": "src", "outDir": "dist", "types": ["node"] },
-  "include": ["src"],
-  "exclude": ["src/**/*.test.ts"],
-  "references": [{ "path": "../persistence-core" }]
+  "compilerOptions": {
+    "rootDir": "src",
+    "outDir": "dist",
+    "types": [
+      "node"
+    ]
+  },
+  "include": [
+    "src"
+  ],
+  "exclude": [
+    "src/**/*.test.ts",
+    "src/test-support.ts", "src/users/fixtures.ts"
+  ],
+  "references": [
+    {
+      "path": "../persistence-core"
+    },
+    {
+      "path": "../persistence-mongo"
+    },
+    {
+      "path": "../persistence-postgres"
+    }
+  ]
 }

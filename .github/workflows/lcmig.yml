@@ -1,0 +1,70 @@
+name: LCMIG persistence
+
+on:
+  pull_request:
+    paths:
+      - 'packages/lcmig/**'
+      - 'packages/persistence-*/**'
+      - 'packages/data-schemas/src/**'
+      - 'docs/audit/**'
+      - 'api/persistence/**'
+      - 'api/strategies/localStrategy.js'
+      - 'package.json'
+      - 'package-lock.json'
+      - '.github/workflows/lcmig.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  lcmig:
+    name: Lint, test, build and audit
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    services:
+      mongo:
+        image: mongo:7
+        ports:
+          - 27017:27017
+      postgres:
+        image: postgres:16
+        env:
+          POSTGRES_USER: lcmig_ci
+          POSTGRES_PASSWORD: ci-only-password
+          POSTGRES_DB: lcmig_test
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd "pg_isready -U lcmig_ci -d lcmig_test"
+          --health-interval 5s
+          --health-timeout 5s
+          --health-retries 10
+    env:
+      PERSISTENCE_MODULE: mongo
+      MONGO_URI: mongodb://localhost:27017/lcmig_test
+      DATABASE_URL: postgres://lcmig_ci:ci-only-password@localhost:5432/lcmig_test
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+      - name: Install
+        run: npm ci
+      - name: Lint
+        run: npm run lint
+      - name: Format check
+        run: npm run format:check
+      - name: Type check
+        run: npm run typecheck
+      - name: Test (contract tests on Mongo and Postgres)
+        run: npm test
+      - name: Build
+        run: npm run build
+      - name: Audit check
+        run: npm run audit:check

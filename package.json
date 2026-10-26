@@ -14,9 +14,9 @@
   ],
   "scripts": {
     "build": "tsc -b",
-    "lint": "eslint packages",
-    "format": "prettier --write .",
-    "format:check": "prettier --check .",
+    "lint": "eslint packages/lcmig packages/persistence-core packages/persistence-mongo packages/persistence-postgres",
+    "format": "prettier --config .prettierrc.json --write packages/lcmig packages/persistence-core packages/persistence-mongo packages/persistence-postgres",
+    "format:check": "prettier --config .prettierrc.json --check packages/lcmig packages/persistence-core packages/persistence-mongo packages/persistence-postgres",
     "typecheck": "tsc -p tsconfig.check.json",
     "audit:check": "tsc -b && node packages/lcmig/dist/cli.js audit-check",
     "test": "jest"

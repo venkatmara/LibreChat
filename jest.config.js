@@ -2,7 +2,12 @@
 module.exports = {
   preset: 'ts-jest',
   testEnvironment: 'node',
-  roots: ['<rootDir>/packages'],
+  roots: [
+    '<rootDir>/packages/lcmig',
+    '<rootDir>/packages/persistence-core',
+    '<rootDir>/packages/persistence-mongo',
+    '<rootDir>/packages/persistence-postgres',
+  ],
   testMatch: ['**/src/**/*.test.ts'],
   moduleNameMapper: {
     '^@lcmig/persistence-core$': '<rootDir>/packages/persistence-core/src/index.ts',

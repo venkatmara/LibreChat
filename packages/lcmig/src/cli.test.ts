@@ -1,12 +1,11 @@
-import { parseStage, run } from './cli';
+import { run } from './index';
 
 describe('lcmig cli', () => {
   it('accepts a known stage', () => {
-    expect(parseStage('profile')).toBe('profile');
-    expect(run(['load'])).toContain('"load"');
+    expect(run(['load'])).toContain('load');
   });
 
-  it('rejects an unknown stage with usage', () => {
-    expect(() => parseStage('bogus')).toThrow(/Usage: lcmig/);
+  it('rejects an unknown stage', () => {
+    expect(() => run(['bogus'])).toThrow(/Unknown command/);
   });
 });

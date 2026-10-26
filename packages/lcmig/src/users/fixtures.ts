@@ -26,7 +26,12 @@ export function userFixture(): { docs: Record<string, unknown>[]; valid: number;
       googleId: 'g-3',
       tenantId: 't1',
     }),
-    base(4, { email: 'dave@example.com', username: '', password: HASH, favorites: [{ model: 'm' }] }),
+    base(4, {
+      email: 'dave@example.com',
+      username: '',
+      password: HASH,
+      favorites: [{ model: 'm' }],
+    }),
     base(5, { email: 'alice@example.com', username: 'alice2' }),
     base(6, { email: 'erin@example.com', username: 'bob' }),
     base(7, { name: 'No Email' }),

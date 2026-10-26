@@ -1,7 +1,7 @@
 import { toUserAuthRecord } from '@lcmig/persistence-postgres';
 import type { Database } from '@lcmig/persistence-postgres';
 import type { Kysely } from 'kysely';
-import type { MongoDocument, UsersCollection } from './types';
+import type { UsersCollection } from './types';
 import { USERS_ENTITY, checksumView, mapUser } from '../mappings/users';
 import { extractUsers } from './extract';
 
@@ -78,7 +78,9 @@ export async function reconcileUsers(
         row,
         identities.filter((i) => i.user_id === row.id),
       );
-      if (checksumView(auth, auth.passwordHash) !== checksumView(m.user.record, m.user.passwordHash)) {
+      if (
+        checksumView(auth, auth.passwordHash) !== checksumView(m.user.record, m.user.passwordHash)
+      ) {
         checksumMismatches.push(legacyId);
       }
     }

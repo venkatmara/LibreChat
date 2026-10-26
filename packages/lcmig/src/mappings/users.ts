@@ -59,7 +59,8 @@ export function mapUser(doc: SourceUserDoc): MapResult {
     // Normalise BSON leftovers (ObjectId, Date) to plain JSON as Postgres JSONB will return them.
     preferences: JSON.parse(JSON.stringify(base.preferences)) as Record<string, unknown>,
   };
-  const passwordHash = typeof doc.password === 'string' && doc.password !== '' ? doc.password : null;
+  const passwordHash =
+    typeof doc.password === 'string' && doc.password !== '' ? doc.password : null;
   return { ok: true, user: { legacyId, record, passwordHash } };
 }
 
@@ -84,7 +85,11 @@ const ms = (d: Date | null): number | null => (d ? d.getTime() : null);
  */
 export function checksumView(record: UserRecord, passwordHash: string | null): string {
   const identities = record.identities
-    .map((i) => ({ provider: i.provider, issuer: i.issuer ?? null, providerUserId: i.providerUserId }))
+    .map((i) => ({
+      provider: i.provider,
+      issuer: i.issuer ?? null,
+      providerUserId: i.providerUserId,
+    }))
     .sort(
       (a, b) =>
         a.provider.localeCompare(b.provider) ||
@@ -107,5 +112,7 @@ export function checksumView(record: UserRecord, passwordHash: string | null): s
     preferences: record.preferences,
     identities,
   };
-  return createHash('sha256').update(JSON.stringify(canonical(view))).digest('hex');
+  return createHash('sha256')
+    .update(JSON.stringify(canonical(view)))
+    .digest('hex');
 }

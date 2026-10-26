@@ -66,7 +66,10 @@ describe('checksumView', () => {
     expect(checksumView({ ...a.record, role: 'ADMIN' }, a.passwordHash)).not.toBe(base);
     expect(checksumView(a.record, 'other')).not.toBe(base);
     expect(
-      checksumView({ ...a.record, updatedAt: new Date(a.record.updatedAt.getTime() + 1) }, a.passwordHash),
+      checksumView(
+        { ...a.record, updatedAt: new Date(a.record.updatedAt.getTime() + 1) },
+        a.passwordHash,
+      ),
     ).not.toBe(base);
   });
 });

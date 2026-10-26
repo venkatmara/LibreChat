@@ -3,17 +3,10 @@
   "compilerOptions": {
     "rootDir": "src",
     "outDir": "dist",
-    "types": [
-      "node"
-    ]
+    "types": ["node"]
   },
-  "include": [
-    "src"
-  ],
-  "exclude": [
-    "src/**/*.test.ts",
-    "src/test-support.ts", "src/users/fixtures.ts"
-  ],
+  "include": ["src"],
+  "exclude": ["src/**/*.test.ts", "src/test-support.ts", "src/users/fixtures.ts"],
   "references": [
     {
       "path": "../persistence-core"

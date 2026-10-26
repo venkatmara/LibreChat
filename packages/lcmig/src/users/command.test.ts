@@ -60,7 +60,11 @@ describeIfPg('lcmig users copy and reconcile', () => {
 
   const snapshot = () =>
     pg(async (db) => ({
-      users: await db.selectFrom('users').select(['legacy_id', 'email']).orderBy('legacy_id').execute(),
+      users: await db
+        .selectFrom('users')
+        .select(['legacy_id', 'email'])
+        .orderBy('legacy_id')
+        .execute(),
       identities: (await db.selectFrom('user_identities').selectAll().execute()).length,
       rejects: await db.selectFrom('migration_rejects').selectAll().orderBy('legacy_id').execute(),
     }));
@@ -114,7 +118,13 @@ describeIfPg('lcmig users copy and reconcile', () => {
 
   it('reports a checksum mismatch and exits 1 (AC-21)', async () => {
     await runUsersCommand(['users'], env);
-    await pg((db) => db.updateTable('users').set({ role: 'ADMIN' }).where('email', '=', 'alice@example.com').execute());
+    await pg((db) =>
+      db
+        .updateTable('users')
+        .set({ role: 'ADMIN' })
+        .where('email', '=', 'alice@example.com')
+        .execute(),
+    );
     const result = await runUsersCommand(['reconcile', '--entity', 'users'], env);
     expect(result.exitCode).toBe(1);
     expect(result.output).toContain('MISMATCH');

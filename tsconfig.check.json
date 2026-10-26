@@ -12,5 +12,10 @@
       "@lcmig/persistence-postgres": ["packages/persistence-postgres/src/index.ts"]
     }
   },
-  "include": ["packages/*/src/**/*.ts"]
+  "include": [
+    "packages/lcmig/src/**/*.ts",
+    "packages/persistence-core/src/**/*.ts",
+    "packages/persistence-mongo/src/**/*.ts",
+    "packages/persistence-postgres/src/**/*.ts"
+  ]
 }

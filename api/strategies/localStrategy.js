@@ -7,8 +7,16 @@ const {
   grandfatherLegacyEmailVerification,
   compareSecret,
 } = require('@librechat/api');
-const { findUser, updateUser } = require('~/models');
+const { getUserRepo } = require('~/persistence');
 const { loginSchema } = require('./validators');
+
+/**
+ * Adapts a port record to the shape the login controller and downstream code read
+ * (`_id`, `password`); the id is the adapter's opaque string.
+ */
+function toLoginUser({ passwordHash, ...record }) {
+  return { ...record, _id: record.id, password: passwordHash ?? undefined };
+}
 
 async function validateLoginRequest(req) {
   const { error } = loginSchema.safeParse(req.body);
@@ -24,7 +32,9 @@ async function passportLogin(req, email, password, done) {
       return done(null, false, { message: validationError });
     }
 
-    const user = await findUser({ email: email.trim() }, '+password');
+    const users = getUserRepo();
+    const record = await users.getAuthByEmail(email.trim());
+    const user = record ? toLoginUser(record) : null;
     if (!user) {
       logError('Passport Local Strategy - User Not Found', { email });
       logger.error(`[Login] [Login failed] [Username: ${email}] [Request-IP: ${req.ip}]`);
@@ -44,11 +54,12 @@ async function passportLogin(req, email, password, done) {
       return done(null, false, { message: 'Incorrect password.' });
     }
 
+    const updateUser = (id, patch) => users.update(id, patch);
     await grandfatherLegacyEmailVerification({ updateUser }, user);
 
     const unverifiedAllowed = isEnabled(process.env.ALLOW_UNVERIFIED_EMAIL_LOGIN);
     if (user.expiresAt && unverifiedAllowed) {
-      await updateUser(user._id, {});
+      await users.update(user._id, { expiresAt: null });
     }
 
     if (!user.emailVerified && !unverifiedAllowed) {

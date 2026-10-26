@@ -72,6 +72,7 @@ const {
   createRequestSanitizer,
 } = require('@librechat/api');
 const { connectDb, indexSync } = require('~/db');
+const { initPersistence } = require('~/persistence');
 const {
   updateAccessPermissions,
   sweepOrphanedPreviews,
@@ -207,6 +208,7 @@ const startServer = async () => {
   await connectDb();
 
   logger.info('Connected to MongoDB');
+  await initPersistence();
   startCodeEnvironmentLifecycleReconciler({ mongoose });
   indexSync().catch((err) => {
     logger.error('[indexSync] Background sync failed:', err);
